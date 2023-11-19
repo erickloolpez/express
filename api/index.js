@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const routerApi = require('./routes')
 
-const {logError, errorHandler, boomErrorHandler} = require('./middlewares/error.handle')
+const {logError, errorHandler, boomErrorHandler, ormErrorHandler} = require('./middlewares/error.handle')
 const app = express()
 const port = process.env.PORT || 3000
 
@@ -32,6 +32,7 @@ app.get('/api/new-route', (req, res) => {
 routerApi(app)
 
 app.use(logError)//The order have importance
+app.use(ormErrorHandler)
 app.use(boomErrorHandler)
 app.use(errorHandler)
 
