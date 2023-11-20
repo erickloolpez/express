@@ -1,7 +1,10 @@
 const { faker } = require('@faker-js/faker')
 const boom = require('@hapi/boom')
 // const pool = require('../../libs/postgres.pool')
-const sequelize = require('../../libs/sequelize')
+// const sequelize = require('../../libs/sequelize')
+
+const {models} = require('../../libs/sequelize')
+
 class ProductsService {
 
   constructor() {
@@ -25,30 +28,37 @@ class ProductsService {
   }
 
   async create(data) {
-    const newProduct = {
-      id: faker.string.uuid(),
-      ...data
+    // const newProduct = {
+    //   id: faker.string.uuid(),
+    //   ...data
 
-    }
-    this.products.push(newProduct)
+    // }
+    // this.products.push(newProduct)
+    // return newProduct
+
+    const newProduct = await models.Product.create(data)
     return newProduct
 
   }
 
   async find() {
-    const query ='select * from tasks'
-    // const rta = await this.pool.query(query)
-    const [data, metadata] = await sequelize.query(query)
-
-    return new Promise((resolve, reject)=>{
-      setTimeout(()=>{
-        resolve({
-          data,
-        })
-        // resolve(rta.rows)
-        // resolve(this.products)
-      },5000)
+    // const query ='select * from tasks'
+    // const rta = await this.pool.query(query) with pool
+    // const [data, metadata] = await sequelize.query(query) with sequelize
+    const products = await models.Product.findAll({
+      include: ['category']
     })
+
+    // return new Promise((resolve, reject)=>{
+    //   setTimeout(()=>{
+    //     resolve({
+    //       data,
+    //     })
+    //     // resolve(rta.rows)
+    //     // resolve(this.products)
+    //   },5000)
+    // })
+    return products
   }
 
   async findOne(id) {
