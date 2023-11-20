@@ -14,6 +14,6 @@ const sequelize = new Sequelize(URI,{
 })
 
 setupModels(sequelize)
-sequelize.sync()
+// sequelize.sync() we dont't do that in the part of settintg the migrations
 
 module.exports = sequelize
