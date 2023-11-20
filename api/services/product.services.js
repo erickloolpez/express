@@ -41,13 +41,20 @@ class ProductsService {
 
   }
 
-  async find() {
+  async find(query) {
+    const options = {
+      include: ['category'],
+
+    }
+    const {limit, offset} = query
+    if(limit && offset){
+      options.limit = limit
+      options.offset = offset
+    }
     // const query ='select * from tasks'
     // const rta = await this.pool.query(query) with pool
     // const [data, metadata] = await sequelize.query(query) with sequelize
-    const products = await models.Product.findAll({
-      include: ['category']
-    })
+    const products = await models.Product.findAll(options)
 
     // return new Promise((resolve, reject)=>{
     //   setTimeout(()=>{
