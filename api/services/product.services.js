@@ -1,4 +1,5 @@
 const { faker } = require('@faker-js/faker')
+const {Op} = require('sequelize')
 const boom = require('@hapi/boom')
 // const pool = require('../../libs/postgres.pool')
 // const sequelize = require('../../libs/sequelize')
@@ -44,12 +45,25 @@ class ProductsService {
   async find(query) {
     const options = {
       include: ['category'],
-
+      where: {}
     }
     const {limit, offset} = query
     if(limit && offset){
       options.limit = limit
       options.offset = offset
+    }
+
+    const {price} = query
+    if(price){
+      options.where.price = price
+    }
+
+    const {pricemin,pricemax} = query
+    if(pricemin && pricemax){
+      options.where.price = {
+        [Op.gte]:pricemin,
+        [Op.lte]: pricemax
+      }
     }
     // const query ='select * from tasks'
     // const rta = await this.pool.query(query) with pool
