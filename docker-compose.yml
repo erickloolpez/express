@@ -11,6 +11,8 @@ services:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=my_store
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
   pgadmin:
     image: dpage/pgadmin4
     environment:
