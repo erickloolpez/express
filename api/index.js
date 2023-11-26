@@ -18,7 +18,7 @@ const options ={
     }
   }
 }
-app.use(cors(options))
+app.use(cors())
 
 app.get('/api', (req, res) => {
   res.send('Hi, my first server on express ')
