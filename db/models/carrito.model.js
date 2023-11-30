@@ -1,5 +1,5 @@
 const {Model, DataTypes, Sequelize} = require('sequelize')
-const {USUARIO_TABLE} = require('./usuario.model')
+const {USUARIO_TABLE} = require('./usario.model')
 
 const CARRITO_TABLE ='carrito'
 
