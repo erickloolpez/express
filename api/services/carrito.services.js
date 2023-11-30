@@ -10,7 +10,7 @@ class CarritoService{
   }
 
   async find(){
-    const rta = await models.Carrito.findAll({as:'usuario'})
+    const rta = await models.Carrito.findAll({include:['usuario']})
     return rta
   }
 
