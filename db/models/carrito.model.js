@@ -10,7 +10,7 @@ const carritoSchema = {
     primaryKey: true,
     type: DataTypes.INTEGER
   },
-  usarioId: {
+  usuarioId: {
     allowNull: false,
     type: DataTypes.INTEGER,
     field: 'usuario_id',

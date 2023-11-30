@@ -2,7 +2,7 @@ const express = require('express')
 
 const CarritoService = require('./../services/carrito.services')
 const validatorHandler = require('./../middlewares/validator.handler')
-const {createCarritoSchema, updateCarritoSchema, getCarritoSchema} = require('./../schemas/carrito.schema')
+const {createCarritoSchema, getCarritoSchema} = require('./../schemas/carrito.schema')
 
 const router = express.Router()
 const service = new CarritoService()
