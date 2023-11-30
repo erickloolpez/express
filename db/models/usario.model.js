@@ -40,4 +40,4 @@ class Usuario extends Model{
   }
 }
 
-module.exports = {USUARIO_TABLE, usuarioSchema, Usuario}
+module.exports = {Usuario, usuarioSchema, USUARIO_TABLE}
