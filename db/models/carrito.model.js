@@ -31,7 +31,7 @@ class Carrito extends Model{
       as: 'items',
       through: models.CarritoProducto,
       foreignKey: 'carritoId',
-      otherKey: 'productoId'
+      otherKey: 'productoItemId'
     })
   }
 

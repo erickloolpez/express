@@ -23,8 +23,8 @@ const carritoProductoSchema = {
     onUpdate: 'CASCADE',
     onDelete: 'SET NULL'
   },
-  productoId: {
-    field: 'producto_id',
+  productoItemId: {
+    field: 'producto_item_id',
     allowNull: false,
     type: DataTypes.INTEGER,
     references: {
