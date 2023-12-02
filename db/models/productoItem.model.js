@@ -1,6 +1,6 @@
 const {Model, DataTypes, Sequelize} = require('sequelize')
 
-const PRODUCTO_ITEM_TABLE = 'producto'
+const PRODUCTO_ITEM_TABLE = 'productoItem'
 
 const productoItemSchema = {
   id : {
@@ -11,16 +11,16 @@ const productoItemSchema = {
   },
   codigo: {
     allowNull: false,
-    type: DataTypes.STRING(50),
+    type: DataTypes.STRING(15),
     unique: true
   },
   foto: {
     allowNull: false,
-    type: DataTypes.STRING(50),
+    type: DataTypes.STRING,
   },
   precio: {
     allowNull: false,
-    type: DataTypes.INTEGER,
+    type: DataTypes.FLOAT,
   },
   stock: {
     allowNull: false,
