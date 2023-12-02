@@ -28,7 +28,7 @@ class Carrito extends Model{
   static associate(models){
     this.belongsTo(models.Usuario , {as:'usuario'})
     this.belongsToMany(models.Producto, {
-      as: 'productos',
+      as: 'items',
       through: models.CarritoProducto,
       foreignKey: 'carritoId',
       otherKey: 'productoId'

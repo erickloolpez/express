@@ -13,8 +13,8 @@ module.exports = {
     await queryInterface.createTable(CARRITO_TABLE, carritoSchema)
     await queryInterface.createTable(CARRITO_PRODUCTO_TABLE, carritoProductoSchema)
     await queryInterface.createTable(PRODUCTO_ITEM_TABLE, productoItemSchema)
-    await queryInterface.createTable(PRODUCTO_TABLE, productoSchema)
     await queryInterface.createTable(CATEGORIA_TABLE, categoriaSchema)
+    await queryInterface.createTable(PRODUCTO_TABLE, productoSchema)
   },
 
   async down (queryInterface, Sequelize) {
@@ -22,7 +22,7 @@ module.exports = {
     await queryInterface.dropTable(CARRITO_TABLE)
     await queryInterface.dropTable(CARRITO_PRODUCTO_TABLE)
     await queryInterface.dropTable(PRODUCTO_ITEM_TABLE)
-    await queryInterface.dropTable(PRODUCTO_TABLE)
     await queryInterface.dropTable(CATEGORIA_TABLE)
+    await queryInterface.dropTable(PRODUCTO_TABLE)
   }
 };
