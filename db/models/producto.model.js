@@ -6,7 +6,7 @@ const PRODUCTO_TABLE = 'producto'
 const productoSchema = {
   id : {
     allowNull: false,
-    autoincrement: true,
+    autoIncrement: true,
     primaryKey: true,
     type: DataTypes.INTEGER
   },
@@ -31,6 +31,12 @@ const productoSchema = {
   foto: {
     allowNull: false,
     type: DataTypes.STRING,
+  },
+    createdAt:{
+    allowNull: false,
+    type: DataTypes.DATE,
+    field: 'created_at',
+    defaultValue: Sequelize.NOW
   }
 }
 

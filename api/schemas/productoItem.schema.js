@@ -1,12 +1,14 @@
 const Joi = require('joi')
 
 const id = Joi.number().integer()
+const productoId = Joi.number().integer()
 const codigo = Joi.string().min(3).max(15)
 const foto = Joi.string().uri()
 const precio = Joi.number()
 const stock = Joi.number().integer()
 
 const createProductoItemSchema = Joi.object({
+  productoId: productoId.required(),
   codigo: codigo.required(),
   foto: foto.required(),
   precio: precio.required(),

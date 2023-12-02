@@ -34,8 +34,6 @@ router.post('/',
   async (req, res, next) => {
     try {
       const body = req.body
-      console.log('Esto es el body',body)
-      console.log(Object.getOwnPropertyNames(Object.getPrototypeOf(service)));
       const newCategoria = await service.create(body)
       res.status(201).json(newCategoria)
     } catch (error) {

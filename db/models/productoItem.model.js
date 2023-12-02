@@ -6,7 +6,7 @@ const PRODUCTO_ITEM_TABLE = 'productoItem'
 const productoItemSchema = {
   id : {
     allowNull: false,
-    autoincrement: true,
+    autoIncrement: true,
     primaryKey: true,
     type: DataTypes.INTEGER
   },
@@ -35,6 +35,12 @@ const productoItemSchema = {
   stock: {
     allowNull: false,
     type: DataTypes.INTEGER,
+  },
+    createdAt:{
+    allowNull: false,
+    type: DataTypes.DATE,
+    field: 'created_at',
+    defaultValue: Sequelize.NOW
   }
 }
 
@@ -50,7 +56,7 @@ class ProductoItem extends Model{
       sequelize,
       tableName: PRODUCTO_ITEM_TABLE,
       modelName: 'ProductoItem',
-      timestpams: false
+      timestamps: false
     }
   }
 }

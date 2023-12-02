@@ -6,7 +6,7 @@ const CARRITO_TABLE ='carrito'
 const carritoSchema = {
   id : {
     allowNull: false,
-    autoincrement: true,
+    autoIncrement: true,
     primaryKey: true,
     type: DataTypes.INTEGER
   },
@@ -21,6 +21,12 @@ const carritoSchema = {
     },
     onUpdate: 'CASCADE',
     onDelete: 'SET NULL'
+  },
+    createdAt:{
+    allowNull: false,
+    type: DataTypes.DATE,
+    field: 'created_at',
+    defaultValue: Sequelize.NOW
   }
 }
 
@@ -40,7 +46,7 @@ class Carrito extends Model{
       sequelize,
       tableName: CARRITO_TABLE,
       modelName: 'Carrito',
-      timestpams: false
+      timestamps: false
     }
   }
 }
