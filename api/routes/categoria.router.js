@@ -1,8 +1,8 @@
 const express = require('express')
 
-const CategoriaService = require('../../services/categoria.service')
-const validationHandler = require('../../utils/middleware/validationHandler')
-const { createCategoriaSchema, updateCategoriaSchema, getCategoriaSchema } = require('../../utils/schemas/categoria.schema')
+const CategoriaService = require('../services/categoria.services')
+const validationHandler = require('../middlewares/validator.handler')
+const { createCategoriaSchema, updateCategoriaSchema, getCategoriaSchema } = require('../schemas/categoria.schema')
 
 const router = express.Router()
 const service = new CategoriaService()
