@@ -3,7 +3,7 @@
 const {usuarioSchema, USUARIO_TABLE} = require('../models/usario.model')
 const {carritoSchema, CARRITO_TABLE} = require('../models/carrito.model')
 const {carritoProductoSchema, CARRITO_PRODUCTO_TABLE} = require('../models/carrito-producto.model')
-const {productoItemSchema, PRODUCTO_ITEM_TABLE} = require('../models/producto-item.model')
+const {productoItemSchema, PRODUCTO_ITEM_TABLE} = require('../models/productoItem.model')
 const {productoSchema, PRODUCTO_TABLE} = require('../models/producto.model')
 const {categoriaSchema, CATEGORIA_TABLE} = require('../models/categoria.model')
 
