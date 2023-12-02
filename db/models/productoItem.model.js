@@ -1,5 +1,6 @@
 const {Model, DataTypes, Sequelize} = require('sequelize')
 
+const {PRODUCTO_TABLE} = require('./producto.model')
 const PRODUCTO_ITEM_TABLE = 'productoItem'
 
 const productoItemSchema = {
@@ -8,6 +9,15 @@ const productoItemSchema = {
     autoincrement: true,
     primaryKey: true,
     type: DataTypes.INTEGER
+  },
+  productoId: {
+    field: 'producto_id',
+    allowNull: false,
+    type: DataTypes.INTEGER,
+    references: {
+      model: PRODUCTO_TABLE,
+      key: 'id'
+    }
   },
   codigo: {
     allowNull: false,
@@ -30,6 +40,9 @@ const productoItemSchema = {
 
 class ProductoItem extends Model{
   static associate(models){
+    this.belongsTo(models.Producto, {
+      as: 'producto'
+    })
   }
 
   static config(sequelize){

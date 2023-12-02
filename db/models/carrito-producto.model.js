@@ -3,7 +3,7 @@ const {Model, DataTypes, Sequelize} = require('sequelize')
 const {CARRITO_TABLE} = require('./carrito.model')
 const {PRODUCTO_TABLE} = require('./producto.model')
 
-const CARRITO_PRODUCTO_TABLE = 'carritos_productos'
+const CARRITO_PRODUCTO_TABLE = 'carrito_producto'
 
 const carritoProductoSchema = {
   id: {
