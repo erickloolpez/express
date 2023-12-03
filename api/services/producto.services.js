@@ -23,7 +23,9 @@ class ProductoService {
 
   async findOne(id) {
     const idAsNumber = parseInt(id, 10)
-    const producto = await models.Producto.findByPk(idAsNumber)
+    const producto = await models.Producto.findByPk(idAsNumber,{
+      include: ['categoria', 'productoItems']
+    })
     if (!producto) {
       throw boom.notFound('Producto not found')
     }
