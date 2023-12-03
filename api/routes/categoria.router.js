@@ -41,7 +41,7 @@ router.post('/',
     }
   })
 
-router.put('/:id',
+router.patch('/:id',
   validationHandler(updateCategoriaSchema, 'body'),
   async (req, res, next) => {
     try {

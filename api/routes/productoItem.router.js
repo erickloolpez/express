@@ -46,7 +46,7 @@ validatorHandler(createProductoItemSchema, 'body'),
 )
 
 router.patch('/:id',
-validatorHandler(updateProductoItemSchema, 'params'),
+validatorHandler(updateProductoItemSchema, 'body'),
  async(req, res, next)=>{
   try{
     const {id} = req.params

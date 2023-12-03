@@ -43,7 +43,7 @@ async(req, res, next)=>{
   }
 
   router.patch('/:id',
-  validatorHandler(updateUsuarioSchema,'params'),
+  validatorHandler(updateUsuarioSchema,'body'),
   async(req, res, next)=>{
     try{
       const {id} = req.params

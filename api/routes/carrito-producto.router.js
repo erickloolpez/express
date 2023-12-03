@@ -1,42 +1,44 @@
 const express = require('express')
 
-const CarritoService = require('./../services/carrito.services')
+const CarritoProductoService = require('./../services/carrito-producto.services')
 const validatorHandler = require('./../middlewares/validator.handler')
-const {createCarritoSchema, getCarritoSchema} = require('./../schemas/carrito.schema')
+const {createCarritoProductoSchema, getCarritoProductoSchema, updateCarritoProductoSchema} = require('./../schemas/carrito-producto.schema')
 
 const router = express.Router()
-const service = new CarritoService()
+const service = new CarritoProductoService()
 
 router.get('/',async(req, res, next)=>{
   try{
-    const carritos = await service.find()
-    res.json(carritos)
+    const carritoProductos = await service.find()
+    res.json(carritoProductos)
 
   }catch(error){
     next(error)
   }
-})
+}
+)
 
 router.get('/:id',
-validatorHandler(getCarritoSchema,'params'),
+validatorHandler(getCarritoProductoSchema,'params'),
 async (req, res, next)=>{
   try{
     const {id} = req.params
-    const carrito = await service.findOne(id)
-    res.json(carrito)
+    const carritoProducto = await service.findOne(id)
+    res.json(carritoProducto)
 
   }catch(error){
     next(error)
   }
-})
+}
+)
 
 router.post('/',
-validatorHandler(createCarritoSchema, 'body'),
+validatorHandler(createCarritoProductoSchema, 'body'),
 async(req, res, next)=>{
   try{
     const body = req.body
-    const newCarrito = await service.create(body)
-    res.status(201).json(newCarrito)
+    const newCarritoProducto = await service.create(body)
+    res.status(201).json(newCarritoProducto)
 
   }catch(error){
     next(error)
@@ -45,17 +47,19 @@ async(req, res, next)=>{
 )
 
 router.patch('/:id',
+validatorHandler(updateCarritoProductoSchema,'body'),
 async(req, res, next)=>{
   try{
     const {id} = req.params
     const body = req.body
-    const carrito = await service.update(id, body)
-    res.json(carrito)
+    const carritoProducto = await service.update(id, body)
+    res.json(carritoProducto)
 
   }catch(error){
     next(error)
   }
-})
+}
+)
 
 router.delete('/:id',
 async(req, res, next)=>{

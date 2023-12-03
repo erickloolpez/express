@@ -1,6 +1,6 @@
 const Joi = require('joi')
 
-const id = Joi.number().integer()
+const id = Joi.string()
 const usuarioId = Joi.number().integer()
 
 const getCarritoSchema = Joi.object({

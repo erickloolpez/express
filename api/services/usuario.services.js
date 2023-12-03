@@ -13,10 +13,13 @@ class UsuarioService{
     const rta = await models.Usuario.findAll({
       include: ['carrito']
     })
+
+    return rta
   }
 
   async findOne(id){
-    const user = await models.Usuario.findByPk(id)
+    const idAsNumber = parseInt(id,10)
+    const user = await models.Usuario.findByPk(idAsNumber)
 
     if(!user){
       throw boom.notFound('User not found')

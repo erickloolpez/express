@@ -1,6 +1,6 @@
 const Joi = require('joi')
 
-const id = Joi.number().integer()
+const id = Joi.string()
 const nombre = Joi.string().max(50)
 
 const createCategoriaSchema = Joi.object({

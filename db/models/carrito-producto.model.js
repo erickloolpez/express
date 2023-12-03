@@ -34,6 +34,10 @@ const carritoProductoSchema = {
     onUpdate: 'CASCADE',
     onDelete: 'SET NULL'
   },
+  cantidad: {
+    allowNull: false,
+    type: DataTypes.INTEGER
+  },
     createdAt:{
     allowNull: false,
     type: DataTypes.DATE,

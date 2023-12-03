@@ -15,7 +15,8 @@ class CarritoService{
   }
 
   async findOne(id){
-    const carrito = await models.Carrito.findByPk(id)
+        const idAsNumber = parseInt(id,10)
+    const carrito = await models.Carrito.findByPk(idAsNumber)
     if(!carrito){
       throw boom.notFound('Carrito not found')
     }

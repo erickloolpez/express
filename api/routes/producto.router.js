@@ -40,8 +40,7 @@ router.post('/',
     }
   })
 
-router.put('/:id',
-  validatorHandler(getProductoSchema, 'params'),
+router.patch('/:id',
   validatorHandler(updateProductoSchema, 'body'),
   async (req, res, next) => {
     try {
