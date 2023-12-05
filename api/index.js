@@ -8,22 +8,17 @@ const port = process.env.PORT || 3000
 
 app.use(express.json())
 
-const whitelist = ['http://localhost:8080', 'https://myapp.com','http://localhost:5500']
-const options ={
-  origin : (origin, callback)=>{
-    if(whitelist.includes(origin)|| !origin){
-      callback(null, true)
-    }else{
-      callback(new Error('Not allowed'))
-    }
-  }
-}
-// app.use(cors({origin: '*'}))
-app.use(cors({
-  origin: '*',
-  methods: ['GET', 'POST', 'PATCH', 'DELETE', 'PUT'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+// const whitelist = ['http://localhost:8080', 'https://myapp.com','http://localhost:5500']
+// const options ={
+//   origin : (origin, callback)=>{
+//     if(whitelist.includes(origin)|| !origin){
+//       callback(null, true)
+//     }else{
+//       callback(new Error('Not allowed'))
+//     }
+//   }
+// }
+app.use(cors())
 
 app.get('/api', (req, res) => {
   res.send('Hi, my first server on express ')
